@@ -1,4 +1,4 @@
-package com.hiddentruffle.javaRestClient;
+package com.hiddentruffle;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;

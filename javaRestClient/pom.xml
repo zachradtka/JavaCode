@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.hiddentruffle.javaRestClient</groupId>
+	<groupId>com.hiddentruffle</groupId>
 	<artifactId>javaRestClient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -78,6 +78,20 @@
 				</executions>
 			</plugin>
 			
+			<!-- Enable source code to download -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
 			<!-- Enable an uberjar to be built -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

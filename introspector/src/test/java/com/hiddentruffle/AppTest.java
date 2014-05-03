@@ -1,4 +1,4 @@
-package com.hiddentruffle.javaRestClient;
+package com.hiddentruffle;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

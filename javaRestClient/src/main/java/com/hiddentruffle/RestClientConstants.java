@@ -1,4 +1,4 @@
-package com.hiddentruffle.javaRestClient;
+package com.hiddentruffle;
 
 public class RestClientConstants {
 	// Use an 8K output buffer
