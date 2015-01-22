@@ -17,24 +17,19 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
-
 public class RestClient {
-	
+
 	/**
 	 * The available command line options
 	 */
 	private static Options options;
-	
+
 	private static String uri;
-	
+
 	public static void main(String[] args) {
-		
+
 		parseCommandLine(args);
 
-		
-		
-		
-		
 		CloseableHttpClient client = HttpClients.createDefault();
 
 		HttpGet httpGet = new HttpGet(uri);
@@ -52,7 +47,8 @@ public class RestClient {
 
 			if (entity != null) {
 
-				bufferedOutput = new BufferedOutputStream(System.out, RestClientConstants.OUTPUT_BUFFER_SIZE);
+				bufferedOutput = new BufferedOutputStream(System.out,
+						RestClientConstants.OUTPUT_BUFFER_SIZE);
 				entity.writeTo(bufferedOutput);
 
 				bufferedOutput.flush();
@@ -77,18 +73,16 @@ public class RestClient {
 		}
 
 	}
-	
+
 	private static void parseCommandLine(String[] args) {
 
 		HelpFormatter formatter = new HelpFormatter();
 
-		
 		// Initialize the command line options
 		initializeOptions();
 
 		// Initialize the parser
 		CommandLineParser cliParser = new DefaultParser();
-
 
 		CommandLine cmd = null;
 
@@ -100,39 +94,36 @@ public class RestClient {
 			formatter.printHelp(RestClient.class.getSimpleName(), options);
 			System.exit(RestClientConstants.ERROR_MALFORMED_COMMAND_LINE_ARG);
 		}
-		
-		
-		
-		if(cmd.hasOption(RestClientConstants.OPT_URI_SHORT)
+
+		if (cmd.hasOption(RestClientConstants.OPT_URI_SHORT)
 				|| cmd.hasOption(RestClientConstants.OPT_URI_LONG)) {
 			uri = cmd.getOptionValue(RestClientConstants.OPT_URI_SHORT);
 		} else {
 			formatter.printHelp(RestClient.class.getSimpleName(), options);
 			System.exit(RestClientConstants.ERROR_MALFORMED_COMMAND_LINE_ARG);
 		}
-		
+
 	}
 
 	/**
 	 * Initialize the command line options for the REST client
-	 * @param options The available options for the REST client
+	 * 
+	 * @param options
+	 *            The available options for the REST client
 	 */
 	private static void initializeOptions() {
 
 		// Initialize the options object
 		options = new Options();
-		
+
 		// Create an option for the URI
 		Option optUri = Option.builder(RestClientConstants.OPT_URI_SHORT)
-			.longOpt(RestClientConstants.OPT_URI_LONG)
-			.desc(RestClientConstants.OPT_URI_DESCRIPTION)
-			.hasArg()
-			.required()
-			.build();
-		
+				.longOpt(RestClientConstants.OPT_URI_LONG)
+				.desc(RestClientConstants.OPT_URI_DESCRIPTION).hasArg()
+				.required().build();
+
 		// Add the URI option to the list of options
 		options.addOption(optUri);
-		
-		
+
 	}
 }

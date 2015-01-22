@@ -1,4 +1,4 @@
-package com.hiddentruffle;
+package com.zachrad.example;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
