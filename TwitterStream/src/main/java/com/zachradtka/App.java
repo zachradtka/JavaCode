@@ -43,7 +43,6 @@ public class App {
             ex.printStackTrace();
          }
 
-         @Override
          public void onDeletionNotice(StatusDeletionNotice statusDeletionNotice) {
             // TODO Auto-generated method stub
          }
